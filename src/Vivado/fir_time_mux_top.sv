@@ -1,33 +1,33 @@
 `timescale 1ns/1ps
 
 module fir_time_mux_top #(
-  parameter N = 64,
-  parameter M = 4,
-  parameter SRL_REG = 0,
-  parameter IN_WIDTH = 12,
-  parameter COEFF_WIDTH = 16,
-  parameter OUT_WIDTH = 12,
-  parameter IN_FRAC = 10,
-  parameter COEFF_FRAC = 15,
-  parameter OUT_FRAC = 10,
-  parameter COEFF_FILE = "h_q115.txt"
+  parameter int N = 64,
+  parameter int M = 4,
+  parameter int SRL_REG = 0,
+  parameter int IN_WIDTH = 12,
+  parameter int COEFF_WIDTH = 16,
+  parameter int OUT_WIDTH = 12,
+  parameter int IN_FRAC = 10,
+  parameter int COEFF_FRAC = 15,
+  parameter int OUT_FRAC = 10,
+  parameter string COEFF_FILE = "h_q115.txt"
 )(
-  input wire clk,
-  input wire rst,
-  input wire in_valid,
-  output wire in_ready,
-  input wire signed [IN_WIDTH-1:0] x_in,
-  output reg out_valid,
-  output reg signed [OUT_WIDTH-1:0] y_out
+  input logic clk,
+  input logic rst,
+  input logic in_valid,
+  output logic in_ready,
+  input logic signed [IN_WIDTH-1:0] x_in,
+  output logic out_valid,
+  output logic signed [OUT_WIDTH-1:0] y_out
 );
 
-  localparam CYCLES = N / M;
-  localparam AW = $clog2(CYCLES);
-  localparam ACC_WIDTH = IN_WIDTH + COEFF_WIDTH + $clog2(N);
-  localparam PROD_FRAC = IN_FRAC + COEFF_FRAC;
-  localparam SHIFT = PROD_FRAC - OUT_FRAC;
-  localparam signed [ACC_WIDTH:0] OUT_MAX = (1 <<< (OUT_WIDTH-1)) - 1;
-  localparam signed [ACC_WIDTH:0] OUT_MIN = -(1 <<< (OUT_WIDTH-1));
+  localparam int CYCLES = N / M;
+  localparam int AW = $clog2(CYCLES);
+  localparam int ACC_WIDTH = IN_WIDTH + COEFF_WIDTH + $clog2(N);
+  localparam int PROD_FRAC = IN_FRAC + COEFF_FRAC;
+  localparam int SHIFT = PROD_FRAC - OUT_FRAC;
+  localparam logic signed [ACC_WIDTH:0] OUT_MAX = (1 <<< (OUT_WIDTH-1)) - 1;
+  localparam logic signed [ACC_WIDTH:0] OUT_MIN = -(1 <<< (OUT_WIDTH-1));
 
   initial begin
     if (N % M != 0) begin
@@ -36,17 +36,17 @@ module fir_time_mux_top #(
     end
   end
 
-  wire sample_en;
-  wire [AW-1:0] coeff_addr;
-  wire [AW-1:0] tap_addr;
-  wire mac_clr;
-  wire mac_en;
-  wire acc_capture;
-  wire ctrl_out_valid;
+  logic sample_en;
+  logic [AW-1:0] coeff_addr;
+  logic [AW-1:0] tap_addr;
+  logic mac_clr;
+  logic mac_en;
+  logic acc_capture;
+  logic ctrl_out_valid;
 
-  wire [M*IN_WIDTH-1:0] taps;
-  wire [M*COEFF_WIDTH-1:0] coeffs;
-  wire [M*ACC_WIDTH-1:0] acc_bus;
+  logic [M*IN_WIDTH-1:0] taps;
+  logic [M*COEFF_WIDTH-1:0] coeffs;
+  logic [M*ACC_WIDTH-1:0] acc_bus;
 
   fir_time_mux_controller #(
     .N(N),
@@ -92,7 +92,7 @@ module fir_time_mux_top #(
 
   genvar gi;
   generate
-    for (gi = 0; gi < M; gi = gi + 1) begin : g_mac
+    for (gi = 0; gi < M; gi++) begin : g_mac
       fixed_point_mac #(
         .IN_WIDTH(IN_WIDTH),
         .COEFF_WIDTH(COEFF_WIDTH),
@@ -109,35 +109,33 @@ module fir_time_mux_top #(
     end
   endgenerate
 
-  integer ti;
-  reg signed [ACC_WIDTH-1:0] acc_sum;
-  always @* begin
-    acc_sum = {ACC_WIDTH{1'b0}};
-    for (ti = 0; ti < M; ti = ti + 1) begin
-      acc_sum = acc_sum + $signed(acc_bus[ti*ACC_WIDTH +: ACC_WIDTH]);
+  logic signed [ACC_WIDTH-1:0] acc_sum;
+  always_comb begin
+    acc_sum = '0;
+    for (int ti = 0; ti < M; ti++) begin
+      acc_sum = acc_sum + signed'(acc_bus[ti*ACC_WIDTH +: ACC_WIDTH]);
     end
   end
 
-  reg signed [ACC_WIDTH-1:0] sum_reg;
-  always @(posedge clk) begin
+  logic signed [ACC_WIDTH-1:0] sum_reg;
+  always_ff @(posedge clk) begin
     if (rst) begin
-      sum_reg <= {ACC_WIDTH{1'b0}};
+      sum_reg <= '0;
     end else if (acc_capture) begin
       sum_reg <= acc_sum;
     end
   end
 
-  function signed [OUT_WIDTH-1:0] saturate_round;
-    input signed [ACC_WIDTH-1:0] a;
-    reg signed [ACC_WIDTH:0] as;
-    reg [ACC_WIDTH:0] mag;
-    reg [ACC_WIDTH:0] magr;
-    reg signed [ACC_WIDTH:0] res;
+  function automatic logic signed [OUT_WIDTH-1:0] saturate_round(input logic signed [ACC_WIDTH-1:0] a);
+    logic signed [ACC_WIDTH:0] as;
+    logic [ACC_WIDTH:0] mag;
+    logic [ACC_WIDTH:0] magr;
+    logic signed [ACC_WIDTH:0] res;
     begin
       as = a;
       mag = as[ACC_WIDTH] ? (-as) : as;
       magr = (mag + (1 << (SHIFT-1))) >> SHIFT;
-      res = as[ACC_WIDTH] ? -$signed(magr) : $signed(magr);
+      res = as[ACC_WIDTH] ? -signed'(magr) : signed'(magr);
       if (res > OUT_MAX) begin
         saturate_round = OUT_MAX[OUT_WIDTH-1:0];
       end else if (res < OUT_MIN) begin
@@ -148,10 +146,10 @@ module fir_time_mux_top #(
     end
   endfunction
 
-  always @(posedge clk) begin
+  always_ff @(posedge clk) begin
     if (rst) begin
       out_valid <= 1'b0;
-      y_out <= {OUT_WIDTH{1'b0}};
+      y_out <= '0;
     end else begin
       out_valid <= ctrl_out_valid;
       if (ctrl_out_valid) begin

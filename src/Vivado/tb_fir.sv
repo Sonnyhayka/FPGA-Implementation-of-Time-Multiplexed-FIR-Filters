@@ -2,34 +2,34 @@
 
 module tb_fir;
 
-  parameter N = 64;
-  parameter M = 4;
-  parameter IN_WIDTH = 12;
-  parameter OUT_WIDTH = 12;
-  parameter NSAMP = 4000;
-  parameter INPUT_FILE = "x_q210.txt";
-  parameter COEFF_FILE = "h_q115.txt";
-  parameter OUT0_FILE = "fir_output_srl0.txt";
-  parameter OUT1_FILE = "fir_output_srl1.txt";
+  localparam int N = 64;
+  localparam int M = 4;
+  localparam int IN_WIDTH = 12;
+  localparam int OUT_WIDTH = 12;
+  localparam int NSAMP = 4000;
+  localparam string INPUT_FILE = "x_q210.txt";
+  localparam string COEFF_FILE = "h_q115.txt";
+  localparam string OUT0_FILE = "fir_output_srl0.txt";
+  localparam string OUT1_FILE = "fir_output_srl1.txt";
 
-  reg clk;
-  reg rst;
-  reg in_valid;
-  reg [$clog2(NSAMP)-1:0] idx;
-  reg [IN_WIDTH-1:0] xmem [0:NSAMP-1];
+  logic clk;
+  logic rst;
+  logic in_valid;
+  logic [$clog2(NSAMP)-1:0] idx;
+  logic [IN_WIDTH-1:0] xmem [0:NSAMP-1];
 
-  wire in_ready0;
-  wire in_ready1;
-  wire out_valid0;
-  wire out_valid1;
-  wire signed [OUT_WIDTH-1:0] y0;
-  wire signed [OUT_WIDTH-1:0] y1;
-  wire signed [IN_WIDTH-1:0] x;
+  logic in_ready0;
+  logic in_ready1;
+  logic out_valid0;
+  logic out_valid1;
+  logic signed [OUT_WIDTH-1:0] y0;
+  logic signed [OUT_WIDTH-1:0] y1;
+  logic signed [IN_WIDTH-1:0] x;
 
-  integer f0;
-  integer f1;
-  integer n0;
-  integer n1;
+  int f0;
+  int f1;
+  int n0;
+  int n1;
 
   assign x = xmem[idx];
 
@@ -79,7 +79,7 @@ module tb_fir;
     rst <= 1'b0;
   end
 
-  always @(posedge clk) begin
+  always_ff @(posedge clk) begin
     if (rst) begin
       in_valid <= 1'b0;
       idx <= 0;
@@ -91,7 +91,7 @@ module tb_fir;
     end
   end
 
-  always @(posedge clk) begin
+  always_ff @(posedge clk) begin
     if (!rst) begin
       if (out_valid0) begin
         $fwrite(f0, "%0d\n", y0);
