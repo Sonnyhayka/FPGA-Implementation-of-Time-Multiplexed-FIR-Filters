@@ -4,25 +4,19 @@ module coeff_bram #(
   parameter int N = 64,
   parameter int M = 4,
   parameter int COEFF_WIDTH = 16,
-  parameter string COEFF_FILE = "h_q115.txt"
+  parameter COEFF_FILE = "h_q115_packed.txt"
 )(
   input logic clk,
-  input logic [$clog2(N/M)-1:0] rd_addr,
+  input logic [((N/M) > 1 ? $clog2(N/M) : 1)-1:0] rd_addr,
   output logic [M*COEFF_WIDTH-1:0] coeffs
 );
 
   localparam int CYCLES = N / M;
 
-  (* ram_style = "block" *) logic [M*COEFF_WIDTH-1:0] mem [0:CYCLES-1];
-  logic [COEFF_WIDTH-1:0] flat [0:N-1];
+  (* rom_style = "block" *) logic [M*COEFF_WIDTH-1:0] mem [0:CYCLES-1];
 
   initial begin
-    $readmemb(COEFF_FILE, flat);
-    for (int c = 0; c < CYCLES; c++) begin
-      for (int m = 0; m < M; m++) begin
-        mem[c][m*COEFF_WIDTH +: COEFF_WIDTH] = flat[m*CYCLES + c];
-      end
-    end
+    $readmemb(COEFF_FILE, mem);
   end
 
   always_ff @(posedge clk) begin

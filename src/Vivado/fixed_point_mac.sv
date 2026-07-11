@@ -16,8 +16,12 @@ module fixed_point_mac #(
 
   localparam int PROD_WIDTH = IN_WIDTH + COEFF_WIDTH;
 
+  logic signed [PROD_WIDTH-1:0] x_extended;
+  logic signed [PROD_WIDTH-1:0] h_extended;
   logic signed [PROD_WIDTH-1:0] prod;
-  assign prod = x * h;
+  assign x_extended = {{COEFF_WIDTH{x[IN_WIDTH-1]}}, x};
+  assign h_extended = {{IN_WIDTH{h[COEFF_WIDTH-1]}}, h};
+  assign prod = x_extended * h_extended;
 
   always_ff @(posedge clk) begin
     if (rst) begin

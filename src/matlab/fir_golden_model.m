@@ -52,6 +52,7 @@ yint = storedInteger(yq);
 
 xPath = fullfile(dataDir, 'x_q210.txt');
 hPath = fullfile(dataDir, 'h_q115.txt');
+hPackedPath = fullfile(dataDir, 'h_q115_packed.txt');
 yPath = fullfile(dataDir, 'y_matlab_q210.txt');
 
 fid = fopen(xPath, 'w');
@@ -63,6 +64,15 @@ fclose(fid);
 fid = fopen(hPath, 'w');
 for i = 1:size(hbin, 1)
     fprintf(fid, '%s\n', hbin(i, :));
+end
+fclose(fid);
+
+fid = fopen(hPackedPath, 'w');
+for c = 1:CYCLES
+    for m = M:-1:1
+        fprintf(fid, '%s', hbin((m-1)*CYCLES+c, :));
+    end
+    fprintf(fid, '\n');
 end
 fclose(fid);
 

@@ -10,7 +10,7 @@ module fir_time_mux_top #(
   parameter int IN_FRAC = 10,
   parameter int COEFF_FRAC = 15,
   parameter int OUT_FRAC = 10,
-  parameter string COEFF_FILE = "h_q115.txt"
+  parameter COEFF_FILE = "h_q115_packed.txt"
 )(
   input logic clk,
   input logic rst,
@@ -22,16 +22,18 @@ module fir_time_mux_top #(
 );
 
   localparam int CYCLES = N / M;
-  localparam int AW = $clog2(CYCLES);
+  localparam int AW = CYCLES > 1 ? $clog2(CYCLES) : 1;
   localparam int ACC_WIDTH = IN_WIDTH + COEFF_WIDTH + $clog2(N);
   localparam int PROD_FRAC = IN_FRAC + COEFF_FRAC;
   localparam int SHIFT = PROD_FRAC - OUT_FRAC;
-  localparam logic signed [ACC_WIDTH:0] OUT_MAX = (1 <<< (OUT_WIDTH-1)) - 1;
-  localparam logic signed [ACC_WIDTH:0] OUT_MIN = -(1 <<< (OUT_WIDTH-1));
 
   initial begin
-    if (N % M != 0) begin
+    if (N <= 0 || M <= 0 || N % M != 0) begin
       $display("fir_time_mux_top parameter error N=%0d must be divisible by M=%0d", N, M);
+      $finish;
+    end
+    if (SHIFT <= 0) begin
+      $display("fir_time_mux_top parameter error product fraction must exceed output fraction");
       $finish;
     end
   end
@@ -41,7 +43,6 @@ module fir_time_mux_top #(
   logic [AW-1:0] tap_addr;
   logic mac_clr;
   logic mac_en;
-  logic acc_capture;
   logic ctrl_out_valid;
 
   logic [M*IN_WIDTH-1:0] taps;
@@ -61,7 +62,6 @@ module fir_time_mux_top #(
     .tap_addr(tap_addr),
     .mac_clr(mac_clr),
     .mac_en(mac_en),
-    .acc_capture(acc_capture),
     .out_valid(ctrl_out_valid)
   );
 
@@ -109,7 +109,7 @@ module fir_time_mux_top #(
     end
   endgenerate
 
-  logic signed [ACC_WIDTH-1:0] acc_sum;
+  (* use_dsp = "no" *) logic signed [ACC_WIDTH-1:0] acc_sum;
   always_comb begin
     acc_sum = '0;
     for (int ti = 0; ti < M; ti++) begin
@@ -117,34 +117,16 @@ module fir_time_mux_top #(
     end
   end
 
-  logic signed [ACC_WIDTH-1:0] sum_reg;
-  always_ff @(posedge clk) begin
-    if (rst) begin
-      sum_reg <= '0;
-    end else if (acc_capture) begin
-      sum_reg <= acc_sum;
-    end
-  end
+  logic signed [OUT_WIDTH-1:0] rounded_value;
 
-  function automatic logic signed [OUT_WIDTH-1:0] saturate_round(input logic signed [ACC_WIDTH-1:0] a);
-    logic signed [ACC_WIDTH:0] as;
-    logic [ACC_WIDTH:0] mag;
-    logic [ACC_WIDTH:0] magr;
-    logic signed [ACC_WIDTH:0] res;
-    begin
-      as = a;
-      mag = as[ACC_WIDTH] ? (-as) : as;
-      magr = (mag + (1 << (SHIFT-1))) >> SHIFT;
-      res = as[ACC_WIDTH] ? -signed'(magr) : signed'(magr);
-      if (res > OUT_MAX) begin
-        saturate_round = OUT_MAX[OUT_WIDTH-1:0];
-      end else if (res < OUT_MIN) begin
-        saturate_round = OUT_MIN[OUT_WIDTH-1:0];
-      end else begin
-        saturate_round = res[OUT_WIDTH-1:0];
-      end
-    end
-  endfunction
+  (* use_dsp = "no" *) fixed_point_output #(
+    .ACC_WIDTH(ACC_WIDTH),
+    .OUT_WIDTH(OUT_WIDTH),
+    .SHIFT(SHIFT)
+  ) u_output (
+    .acc(acc_sum),
+    .value(rounded_value)
+  );
 
   always_ff @(posedge clk) begin
     if (rst) begin
@@ -153,7 +135,7 @@ module fir_time_mux_top #(
     end else begin
       out_valid <= ctrl_out_valid;
       if (ctrl_out_valid) begin
-        y_out <= saturate_round(sum_reg);
+        y_out <= rounded_value;
       end
     end
   end
