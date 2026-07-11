@@ -1,0 +1,7 @@
+Samples: 4000
+Taps: 64
+MAC units: 4
+Cycles per output sample: 16
+SRL_REG=0 maximum absolute difference: 0 LSB
+SRL_REG=1 maximum absolute difference: 0 LSB
+SRL_REG outputs identical: 1

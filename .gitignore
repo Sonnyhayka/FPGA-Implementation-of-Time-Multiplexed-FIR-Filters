@@ -1,0 +1,6 @@
+docs
+.venv/
+fir_sim
+dfx_runtime.txt
+vivado*.jou
+vivado*.log

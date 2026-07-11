@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<RptDoc cmdline="report_utilization -format xml -file {C:/Users/hayka/Desktop/Main Code Source Collection/FPGA FIR Filter/FPGA-Implementation-of-Time-Multiplexed-FIR-Filters/result/utilization_srl0.xml}" designname="fir_time_mux_top" designstate="Optimized" partname="xc7a35tcpg236-1" speedfile="-1" title="Utilization Design Information" version="1">
+
+  <section class="" title="Slice Logic">
+    <table class="" style="2" title="" useFootnoteNumbers="0">
+      <footnote text="Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.&#xA;Warning! LUT value is adjusted to account for LUT combining.&#xA;Warning! For any ECO changes, please run place_design if there are unplaced instances"/>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tableheader class="" contents="Site Type" halign="3" width="-1"/>
+        <tableheader class="" contents="Used" halign="3" width="-1"/>
+        <tableheader class="" contents="Fixed" halign="3" width="-1"/>
+        <tableheader class="" contents="Prohibited" halign="3" width="-1"/>
+        <tableheader class="" contents="Available" halign="3" width="-1"/>
+        <tableheader class="" contents="Util%" halign="3" width="-1"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="Slice LUTs*" halign="1" type="string"/>
+        <tablecell class="" contents="389" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="20800" halign="4" type="string"/>
+        <tablecell class="" contents="1.87" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="  LUT as Logic" halign="1" type="string"/>
+        <tablecell class="" contents="389" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="20800" halign="4" type="string"/>
+        <tablecell class="" contents="1.87" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="  LUT as Memory" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="9600" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="Slice Registers" halign="1" type="string"/>
+        <tablecell class="" contents="790" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="41600" halign="4" type="string"/>
+        <tablecell class="" contents="1.90" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="  Register as Flip Flop" halign="1" type="string"/>
+        <tablecell class="" contents="790" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="41600" halign="4" type="string"/>
+        <tablecell class="" contents="1.90" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="  Register as Latch" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="41600" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="F7 Muxes" halign="1" type="string"/>
+        <tablecell class="" contents="96" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="16300" halign="4" type="string"/>
+        <tablecell class="" contents="0.59" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="F8 Muxes" halign="1" type="string"/>
+        <tablecell class="" contents="48" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="8150" halign="4" type="string"/>
+        <tablecell class="" contents="0.59" halign="4" type="string"/>
+      </tablerow>
+    </table>
+    <section class="" title="Summary of Registers by Type">
+      <table class="" style="2" title="" useFootnoteNumbers="0">
+        <tablerow class="" suppressoutput="0" wordwrap="0">
+          <tableheader class="" contents="Total" halign="3" width="-1"/>
+          <tableheader class="" contents="Clock Enable" halign="3" width="-1"/>
+          <tableheader class="" contents="Synchronous" halign="3" width="-1"/>
+          <tableheader class="" contents="Asynchronous" halign="3" width="-1"/>
+        </tablerow>
+        <tablerow class="" suppressoutput="0" wordwrap="0">
+          <tablecell class="" contents="0" halign="1" type="string"/>
+          <tablecell class="" contents="_" halign="4" type="string"/>
+          <tablecell class="" contents="-" halign="4" type="string"/>
+          <tablecell class="" contents="-" halign="4" type="string"/>
+        </tablerow>
+        <tablerow class="" suppressoutput="0" wordwrap="0">
+          <tablecell class="" contents="0" halign="1" type="string"/>
+          <tablecell class="" contents="_" halign="4" type="string"/>
+          <tablecell class="" contents="-" halign="4" type="string"/>
+          <tablecell class="" contents="Set" halign="4" type="string"/>
+        </tablerow>
+        <tablerow class="" suppressoutput="0" wordwrap="0">
+          <tablecell class="" contents="0" halign="1" type="string"/>
+          <tablecell class="" contents="_" halign="4" type="string"/>
+          <tablecell class="" contents="-" halign="4" type="string"/>
+          <tablecell class="" contents="Reset" halign="4" type="string"/>
+        </tablerow>
+        <tablerow class="" suppressoutput="0" wordwrap="0">
+          <tablecell class="" contents="0" halign="1" type="string"/>
+          <tablecell class="" contents="_" halign="4" type="string"/>
+          <tablecell class="" contents="Set" halign="4" type="string"/>
+          <tablecell class="" contents="-" halign="4" type="string"/>
+        </tablerow>
+        <tablerow class="" suppressoutput="0" wordwrap="0">
+          <tablecell class="" contents="0" halign="1" type="string"/>
+          <tablecell class="" contents="_" halign="4" type="string"/>
+          <tablecell class="" contents="Reset" halign="4" type="string"/>
+          <tablecell class="" contents="-" halign="4" type="string"/>
+        </tablerow>
+        <tablerow class="" suppressoutput="0" wordwrap="0">
+          <tablecell class="" contents="0" halign="1" type="string"/>
+          <tablecell class="" contents="Yes" halign="4" type="string"/>
+          <tablecell class="" contents="-" halign="4" type="string"/>
+          <tablecell class="" contents="-" halign="4" type="string"/>
+        </tablerow>
+        <tablerow class="" suppressoutput="0" wordwrap="0">
+          <tablecell class="" contents="0" halign="1" type="string"/>
+          <tablecell class="" contents="Yes" halign="4" type="string"/>
+          <tablecell class="" contents="-" halign="4" type="string"/>
+          <tablecell class="" contents="Set" halign="4" type="string"/>
+        </tablerow>
+        <tablerow class="" suppressoutput="0" wordwrap="0">
+          <tablecell class="" contents="0" halign="1" type="string"/>
+          <tablecell class="" contents="Yes" halign="4" type="string"/>
+          <tablecell class="" contents="-" halign="4" type="string"/>
+          <tablecell class="" contents="Reset" halign="4" type="string"/>
+        </tablerow>
+        <tablerow class="" suppressoutput="0" wordwrap="0">
+          <tablecell class="" contents="0" halign="1" type="string"/>
+          <tablecell class="" contents="Yes" halign="4" type="string"/>
+          <tablecell class="" contents="Set" halign="4" type="string"/>
+          <tablecell class="" contents="-" halign="4" type="string"/>
+        </tablerow>
+        <tablerow class="" suppressoutput="0" wordwrap="0">
+          <tablecell class="" contents="790" halign="1" type="string"/>
+          <tablecell class="" contents="Yes" halign="4" type="string"/>
+          <tablecell class="" contents="Reset" halign="4" type="string"/>
+          <tablecell class="" contents="-" halign="4" type="string"/>
+        </tablerow>
+      </table>
+    </section>
+  </section>
+
+  <section class="" title="Memory">
+    <table class="" style="2" title="" useFootnoteNumbers="0">
+      <footnote text="Note: Each Block RAM Tile only has one FIFO logic available and therefore can accommodate only one FIFO36E1 or one FIFO18E1. However, if a FIFO18E1 occupies a Block RAM Tile, that tile can still accommodate a RAMB18E1"/>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tableheader class="" contents="Site Type" halign="3" width="-1"/>
+        <tableheader class="" contents="Used" halign="3" width="-1"/>
+        <tableheader class="" contents="Fixed" halign="3" width="-1"/>
+        <tableheader class="" contents="Prohibited" halign="3" width="-1"/>
+        <tableheader class="" contents="Available" halign="3" width="-1"/>
+        <tableheader class="" contents="Util%" halign="3" width="-1"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="Block RAM Tile" halign="1" type="string"/>
+        <tablecell class="" contents="1" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="50" halign="4" type="string"/>
+        <tablecell class="" contents="2.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="  RAMB36/FIFO*" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="50" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="  RAMB18" halign="1" type="string"/>
+        <tablecell class="" contents="2" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="100" halign="4" type="string"/>
+        <tablecell class="" contents="2.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="    RAMB18E1 only" halign="1" type="string"/>
+        <tablecell class="" contents="2" halign="4" type="string"/>
+        <tablecell class="" contents="" halign="0" type="string"/>
+        <tablecell class="" contents="" halign="0" type="string"/>
+        <tablecell class="" contents="" halign="0" type="string"/>
+        <tablecell class="" contents="" halign="0" type="string"/>
+      </tablerow>
+    </table>
+  </section>
+
+  <section class="" title="DSP">
+    <table class="" style="2" title="" useFootnoteNumbers="0">
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tableheader class="" contents="Site Type" halign="3" width="-1"/>
+        <tableheader class="" contents="Used" halign="3" width="-1"/>
+        <tableheader class="" contents="Fixed" halign="3" width="-1"/>
+        <tableheader class="" contents="Prohibited" halign="3" width="-1"/>
+        <tableheader class="" contents="Available" halign="3" width="-1"/>
+        <tableheader class="" contents="Util%" halign="3" width="-1"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="DSPs" halign="1" type="string"/>
+        <tablecell class="" contents="4" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="90" halign="4" type="string"/>
+        <tablecell class="" contents="4.44" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="  DSP48E1 only" halign="1" type="string"/>
+        <tablecell class="" contents="4" halign="4" type="string"/>
+        <tablecell class="" contents="" halign="0" type="string"/>
+        <tablecell class="" contents="" halign="0" type="string"/>
+        <tablecell class="" contents="" halign="0" type="string"/>
+        <tablecell class="" contents="" halign="0" type="string"/>
+      </tablerow>
+    </table>
+  </section>
+
+  <section class="" title="IO and GT Specific">
+    <table class="" style="2" title="" useFootnoteNumbers="0">
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tableheader class="" contents="Site Type" halign="3" width="-1"/>
+        <tableheader class="" contents="Used" halign="3" width="-1"/>
+        <tableheader class="" contents="Fixed" halign="3" width="-1"/>
+        <tableheader class="" contents="Prohibited" halign="3" width="-1"/>
+        <tableheader class="" contents="Available" halign="3" width="-1"/>
+        <tableheader class="" contents="Util%" halign="3" width="-1"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="Bonded IOB" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="106" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="Bonded IPADs" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="10" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="Bonded OPADs" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="4" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="PHY_CONTROL" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="5" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="PHASER_REF" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="5" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="OUT_FIFO" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="20" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="IN_FIFO" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="20" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="IDELAYCTRL" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="5" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="IBUFDS" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="104" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="GTPE2_CHANNEL" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="2" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="PHASER_OUT/PHASER_OUT_PHY" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="20" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="PHASER_IN/PHASER_IN_PHY" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="20" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="IDELAYE2/IDELAYE2_FINEDELAY" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="250" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="IBUFDS_GTE2" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="2" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="ILOGIC" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="106" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="OLOGIC" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="106" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+    </table>
+  </section>
+
+  <section class="" title="Clocking">
+    <table class="" style="2" title="" useFootnoteNumbers="0">
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tableheader class="" contents="Site Type" halign="3" width="-1"/>
+        <tableheader class="" contents="Used" halign="3" width="-1"/>
+        <tableheader class="" contents="Fixed" halign="3" width="-1"/>
+        <tableheader class="" contents="Prohibited" halign="3" width="-1"/>
+        <tableheader class="" contents="Available" halign="3" width="-1"/>
+        <tableheader class="" contents="Util%" halign="3" width="-1"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="BUFGCTRL" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="32" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="BUFIO" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="20" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="MMCME2_ADV" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="5" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="PLLE2_ADV" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="5" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="BUFMRCE" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="10" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="BUFHCE" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="72" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="BUFR" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="20" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+    </table>
+  </section>
+
+  <section class="" title="Specific Feature">
+    <table class="" style="2" title="" useFootnoteNumbers="0">
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tableheader class="" contents="Site Type" halign="3" width="-1"/>
+        <tableheader class="" contents="Used" halign="3" width="-1"/>
+        <tableheader class="" contents="Fixed" halign="3" width="-1"/>
+        <tableheader class="" contents="Prohibited" halign="3" width="-1"/>
+        <tableheader class="" contents="Available" halign="3" width="-1"/>
+        <tableheader class="" contents="Util%" halign="3" width="-1"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="BSCANE2" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="4" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="CAPTUREE2" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="1" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="DNA_PORT" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="1" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="EFUSE_USR" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="1" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="FRAME_ECCE2" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="1" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="ICAPE2" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="2" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="PCIE_2_1" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="1" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="STARTUPE2" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="1" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="XADC" halign="1" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="0" halign="4" type="string"/>
+        <tablecell class="" contents="1" halign="4" type="string"/>
+        <tablecell class="" contents="0.00" halign="4" type="string"/>
+      </tablerow>
+    </table>
+  </section>
+
+  <section class="" title="Primitives">
+    <table class="" style="2" title="" useFootnoteNumbers="0">
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tableheader class="" contents="Ref Name" halign="3" width="-1"/>
+        <tableheader class="" contents="Used" halign="3" width="-1"/>
+        <tableheader class="" contents="Functional Category" halign="3" width="-1"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="FDRE" halign="1" type="string"/>
+        <tablecell class="" contents="790" halign="4" type="string"/>
+        <tablecell class="" contents="Flop &amp; Latch" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="LUT6" halign="1" type="string"/>
+        <tablecell class="" contents="227" halign="4" type="string"/>
+        <tablecell class="" contents="LUT" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="MUXF7" halign="1" type="string"/>
+        <tablecell class="" contents="96" halign="4" type="string"/>
+        <tablecell class="" contents="MuxFx" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="LUT5" halign="1" type="string"/>
+        <tablecell class="" contents="64" halign="4" type="string"/>
+        <tablecell class="" contents="LUT" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="MUXF8" halign="1" type="string"/>
+        <tablecell class="" contents="48" halign="4" type="string"/>
+        <tablecell class="" contents="MuxFx" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="LUT3" halign="1" type="string"/>
+        <tablecell class="" contents="40" halign="4" type="string"/>
+        <tablecell class="" contents="LUT" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="LUT2" halign="1" type="string"/>
+        <tablecell class="" contents="39" halign="4" type="string"/>
+        <tablecell class="" contents="LUT" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="LUT1" halign="1" type="string"/>
+        <tablecell class="" contents="36" halign="4" type="string"/>
+        <tablecell class="" contents="LUT" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="CARRY4" halign="1" type="string"/>
+        <tablecell class="" contents="27" halign="4" type="string"/>
+        <tablecell class="" contents="CarryLogic" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="LUT4" halign="1" type="string"/>
+        <tablecell class="" contents="13" halign="4" type="string"/>
+        <tablecell class="" contents="LUT" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="DSP48E1" halign="1" type="string"/>
+        <tablecell class="" contents="4" halign="4" type="string"/>
+        <tablecell class="" contents="Block Arithmetic" halign="4" type="string"/>
+      </tablerow>
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tablecell class="" contents="RAMB18E1" halign="1" type="string"/>
+        <tablecell class="" contents="2" halign="4" type="string"/>
+        <tablecell class="" contents="Block Memory" halign="4" type="string"/>
+      </tablerow>
+    </table>
+  </section>
+
+  <section class="" title="Black Boxes">
+    <table class="" style="2" title="" useFootnoteNumbers="0">
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tableheader class="" contents="Ref Name" halign="3" width="-1"/>
+        <tableheader class="" contents="Used" halign="3" width="-1"/>
+      </tablerow>
+    </table>
+  </section>
+
+  <section class="" title="Instantiated Netlists">
+    <table class="" style="2" title="" useFootnoteNumbers="0">
+      <tablerow class="" suppressoutput="0" wordwrap="0">
+        <tableheader class="" contents="Ref Name" halign="3" width="-1"/>
+        <tableheader class="" contents="Used" halign="3" width="-1"/>
+      </tablerow>
+    </table>
+  </section>
+
+</RptDoc>
